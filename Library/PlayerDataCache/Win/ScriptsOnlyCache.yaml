@@ -792,4 +792,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/Game.unity
-  playerPath: C:/Users/tygo/Desktop/asdfasdf/SimonSays.exe
+  playerPath: C:/Users/tygo/Desktop/SimonSays/SimonSays.exe

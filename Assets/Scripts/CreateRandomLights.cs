@@ -31,47 +31,49 @@ public class CreateRandomLights : MonoBehaviour
 
     private IEnumerator StartWithDelay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         StartCoroutine(StartRound());
+        yield return null;
     }
 
     public IEnumerator StartRound()
     {
         enableInput = false;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSecondsRealtime(0.25f);
 
         while (currentLightNumber < ColorPattern.Count)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSecondsRealtime(0.5f);
             displayColor.Display(ColorPattern[currentLightNumber]);
             currentLightNumber++;
         }
 
-        yield return new WaitForSeconds(0.5f);
-        currentLightNumber = 0;
+        yield return new WaitForSecondsRealtime(0.5f);
         AddRandomColor();
+        currentLightNumber = 0;
         enableInput = true;
+        yield return null;
     }
 
     private void AddRandomColor()
     {
-        int rand = UnityEngine.Random.Range(0, 4 + 1);
+        int rand = UnityEngine.Random.Range(0, 3 + 1);
 
         switch (rand)
         {
-            case 1:
+            case 0:
                 ColorPattern.Add(SColor.Red);
                 displayColor.Display(SColor.Red);
                 break;
-            case 2:
+            case 1:
                 ColorPattern.Add(SColor.Green);
                 displayColor.Display(SColor.Green);
                 break;
-            case 3:
+            case 2:
                 ColorPattern.Add(SColor.Blue);
                 displayColor.Display(SColor.Blue);
                 break;
-            case 4:
+            case 3:
                 ColorPattern.Add(SColor.Yellow);
                 displayColor.Display(SColor.Yellow);
                 break;
